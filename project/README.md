@@ -13,12 +13,26 @@ To investigate, I will research how ocean temperature affects the sea level alon
 ## Project Description
 The following steps can be used to construct the model files, configure and run the model, and assess the model results:
 
-# Step 1: Create the Model Files
+### Step 1: Create the Model Files
 Several input files are needed to run the model. Generate the following list of files using the notebooks (indicated in the parentheses):
 
 * Model Grid (notebooks/Creating the Model Grid.ipynb)
 * Bathymetry (notebooks/Creating the Bathymetry.ipynb)
 * Initial Conditions (notebooks/Creating the Initial Conditions.ipynb)
+    * This is important as you will get three Theta files along with the other initial conditions
 * External Forcing Conditions (notebooks/Creating the External Forcing Conditions.ipynb)
 * Boundary Conditions (notebooks/Creating the Boundary Conditions.ipynb) The model files should be placed into the input 
   directory.
+
+### Step 2: Add files to the Computing Cluster
+Once the input files have been created, the model files can be transferred to the computing cluster. Begin by cloning a copy of MITgcm into your scratch directory and make a folder for the configuration, .e.g.
+
+mkdir MITgcm/configurations/ocean_temperature_california
+
+### Step 3: Compile the Model
+Once all the files are on the computing cluster, the model cane be compiled. Make a build directory in the configuration directory and run the following lines:
+../../../tools/genmake2 -of ../../../tools/build_options/darwin_amd64_gfortran -mods ../code -mpi
+make depend
+make
+
+### Step 4: Run the model 
