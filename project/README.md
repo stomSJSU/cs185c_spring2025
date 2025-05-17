@@ -27,7 +27,9 @@ Several input files are needed to run the model. Generate the following list of 
 ### Step 2: Add files to the Computing Cluster
 Once the input files have been created, the model files can be transferred to the computing cluster. Begin by cloning a copy of [MITgcm](https://github.com/MITgcm/MITgcm) into your scratch directory and make a folder for the configuration, .e.g.
 
+```bash
 mkdir MITgcm/configurations/ocean_temperature_california
+```
 
 ### Step 3: Compile the Model
 Once all the files are on the computing cluster, the model cane be compiled. Make a ```build``` directory in the configuration directory and run the following lines:
@@ -62,7 +64,9 @@ sbatch cs185c.slm
 ### Step 5: Analyze the Results
 There are two notebooks provided for analysis:
    1. Analyzing the Model Results
+
       This notebook is provided to have a quick look at spatial and temporal variations in the temperature field in the model with both warmed 
       and cooled Theta fields with +/- 2°C changes. It also generates the visualization provided in the figures directory.
-   2. Answering the Science Question
+   3. Answering the Science Question
+    
       This notebook provided some analysis plots to address the science question posed above.  
