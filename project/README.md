@@ -1,4 +1,4 @@
-# California Upwelling
+# Ocean Warming and Coastal Sea-Level Dynamics in California
 
 In this project, I will investigate the effects of ocean temperature and how it affects the California sea level. 
 
