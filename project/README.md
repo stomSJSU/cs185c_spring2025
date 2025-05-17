@@ -45,7 +45,7 @@ After the compilation is complete, run the model with the wind. Move to the ```r
 sbatch cs185c.slm
 ```
 
-###Step 4.2 Run the Model with Warmed Theta
+### Step 4.2 Run the Model with Warmed Theta
 Next, run the model with the warmed theta ```Theta_warm_IC.bin```. Again, link everything from ```input``` and ```code``` to a directory called ```run_warmed```. Then, edit the ```data``` file to point to the modified files (see the Creating the Initial Conditions.ipynb). Then submit the job script again to rerun the model.
 
 ```bash
