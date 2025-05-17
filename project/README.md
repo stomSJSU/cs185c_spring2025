@@ -25,19 +25,44 @@ Several input files are needed to run the model. Generate the following list of 
   directory.
 
 ### Step 2: Add files to the Computing Cluster
-Once the input files have been created, the model files can be transferred to the computing cluster. Begin by cloning a copy of MITgcm into your scratch directory and make a folder for the configuration, .e.g.
+Once the input files have been created, the model files can be transferred to the computing cluster. Begin by cloning a copy of [MITgcm](https://github.com/MITgcm/MITgcm) into your scratch directory and make a folder for the configuration, .e.g.
 
 mkdir MITgcm/configurations/ocean_temperature_california
 
 ### Step 3: Compile the Model
-Once all the files are on the computing cluster, the model cane be compiled. Make a build directory in the configuration directory and run the following lines:
+Once all the files are on the computing cluster, the model cane be compiled. Make a ```build``` directory in the configuration directory and run the following lines:
+
+```bash
 ../../../tools/genmake2 -of ../../../tools/build_options/darwin_amd64_gfortran -mods ../code -mpi
 make depend
 make
-
-### Step 4: Run the model 
-After the compilation is complete, run the model with the wind. Move to the run directory, link everything from input and code, and the submit the job script:
+```
+Then, use the ```scp``` command to send the ```code```, ```input```, and ```namelist``` directories to your configuration directory.
+### Step 4: Run the Model 
+After the compilation is complete, run the model with the wind. Move to the ```run``` directory, link everything from ```input``` and ```code```, and then submit the job script:
 
 ```bash
 sbatch cs185c.slm
 ```
+
+###Step 4.2 Run the Model with Warmed Theta
+Next, run the model with the warmed theta ```Theta_warm_IC.bin```. Again, link everything from ```input``` and ```code``` to a directory called ```run_warmed```. Then, edit the ```data``` file to point to the modified files (see the Creating the Initial Conditions.ipynb). Then submit the job script again to rerun the model.
+
+```bash
+sbatch cs185c.slm
+```
+
+### Step 4.3 Run the Model with Cooled Theta
+Next, run the model with the cooled theta ```Theta_cool_IC.bin```. Again, link everything from ```input``` and ```code``` to a directory called ```run_cooled```. Then, edit the ```data``` file to point to the modified files (see the Creating the Initial Conditions.ipynb). Then submit the job script again to rerun the model.
+
+```bash
+sbatch cs185c.slm
+```
+
+### Step 5: Analyze the Results
+There are two notebooks provided for analysis:
+   1. Analyzing the Model Results
+      This notebook is provided to have a quick look at spatial and temporal variations in the temperature field in the model with both warmed 
+      and cooled Theta fields with +/- 2°C changes. It also generates the visualization provided in the figures directory.
+   2. Answering the Science Question
+      This notebook provided some analysis plots to address the science question posed above.  
