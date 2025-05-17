@@ -1,0 +1,7 @@
+#!/bin/bash
+#SBATCH --partition=nodes
+#SBATCH --nodes=1
+#SBATCH --ntasks=8
+#SBATCH --time=10:00:00
+export MPI_HOME=/home/cs185c19/.conda/envs/cs185c
+mpirun -np 8 ./mitgcmuv
