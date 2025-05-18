@@ -44,21 +44,21 @@ Then, use the ```scp``` command to send the ```code```, ```input```, and ```name
 After the compilation is complete, run the model with the wind. Move to the ```run``` directory, link everything from ```input``` and ```code```, and then submit the job script:
 
 ```bash
-sbatch cs185c.slm
+sbatch cs185c19.slm
 ```
 
 ### Step 4.2 Run the Model with Warmed Theta
 Next, run the model with the warmed theta ```Theta_warm_IC.bin```. Again, link everything from ```input``` and ```code``` to a directory called ```run_warmed```. Then, edit the ```data``` file to point to the modified files (see the Creating the Initial Conditions.ipynb). Then submit the job script again to rerun the model.
 
 ```bash
-sbatch cs185c.slm
+sbatch cs185c19.slm
 ```
 
 ### Step 4.3 Run the Model with Cooled Theta
 Next, run the model with the cooled theta ```Theta_cool_IC.bin```. Again, link everything from ```input``` and ```code``` to a directory called ```run_cooled```. Then, edit the ```data``` file to point to the modified files (see the Creating the Initial Conditions.ipynb). Then submit the job script again to rerun the model.
 
 ```bash
-sbatch cs185c.slm
+sbatch cs185c19.slm
 ```
 
 ### Step 5: Analyze the Results
